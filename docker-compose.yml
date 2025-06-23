@@ -20,17 +20,18 @@ services:
       - MONGO_PASS=?e50i45d?+C@1989#
     depends_on:
       - mongo
+
   mongo:
     image: mongo:6
     restart: always
     ports:
       - "27017:27017"
     environment:
-    -MONGO_INITDB_ROOT_USERNAME: admin
-    -MONGO_INITDB_ROOT_PASSWORD: ?e50i45d?+C@1989#
-    MONGO_INITDB_DATABASE: gemsdb
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: "?e50i45d?+C@1989#"
+      MONGO_INITDB_DATABASE: gemsdb
     volumes:
-      - mongo-data:/data/db
+      - mongo_data:/data/db
 
 volumes:
   mongo_data:
