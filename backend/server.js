@@ -11,6 +11,8 @@ const customerItemRoutes = require("./routes/customerRoute");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+console.log("PORT --", PORT);
+
 app.use(cors());
 
 app.use(express.json());

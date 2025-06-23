@@ -24,8 +24,8 @@ export default function SavedItemsList({ type, onEdit }) {
       try {
         const endpoint =
           type === "sales"
-            ? "http://localhost:5000/api/sales"
-            : "http://localhost:5000/api/customers";
+            ? "api/sales"
+            : "api/customers";
 
         const { data } = await axios.get(endpoint);
         setSavedItems(data);
@@ -39,7 +39,7 @@ export default function SavedItemsList({ type, onEdit }) {
 
   const handleDelete = async (id) => {
     try {
-      const endpoint = `http://localhost:5000/api/customers/${id}`;
+      const endpoint = `api/customers/${id}`;
       await axios.delete(endpoint);
       setSavedItems((prev) => prev.filter((item) => item._id !== id));
     } catch (err) {
