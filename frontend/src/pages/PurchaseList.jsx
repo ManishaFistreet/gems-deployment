@@ -19,7 +19,7 @@ export default function PurchaseList() {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/api/customers/purchased-customers`)
+      .get("/api/customers/purchased-customers")
       .then((res) => {
         const data = Array.isArray(res.data) ? res.data : [res.data];
         setCustomerItems(data);

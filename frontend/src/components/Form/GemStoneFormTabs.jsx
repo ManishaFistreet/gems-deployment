@@ -189,8 +189,8 @@ export default function GemStoneFormTabs() {
     const isSales = tab === 0;
 
     const endpoint = isSales
-      ? `${process.env.REACT_APP_API_URL}/api/sales`
-      : `${process.env.REACT_APP_API_URL}/api/customers`;
+      ? "/api/sales"
+      : "/api/customers";
 
     try {
       if (!isSales && editIndex !== null) {
@@ -217,8 +217,8 @@ export default function GemStoneFormTabs() {
     try {
       const endpoint =
         type === "sales"
-          ? `${process.env.REACT_APP_API_URL}/api/sales`
-          : `${process.env.REACT_APP_API_URL}/api/customers`;
+          ? "/api/sales"
+          : "/api/customers";
 
       const res = await axios.get(endpoint);
       setSavedItems(res.data);
