@@ -15,13 +15,22 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=5000
-
+      - MONGO_URI=mongodb://mongo:27017/gemsdb
+      - MONGO_USER=admin
+      - MONGO_PASS=?e50i45d?+C@1989#
+    depends_on:
+      - mongo
   mongo:
-    image: mongo
+    image: mongo:6
+    restart: always
     ports:
       - "27017:27017"
+    environment:
+    -MONGO_INITDB_ROOT_USERNAME: admin
+    -MONGO_INITDB_ROOT_PASSWORD: ?e50i45d?+C@1989#
+    MONGO_INITDB_DATABASE: gemsdb
     volumes:
       - mongo-data:/data/db
 
 volumes:
-  mongo-data:
+  mongo_data:

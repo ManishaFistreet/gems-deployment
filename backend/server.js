@@ -15,16 +15,29 @@ app.use(cors());
 
 app.use(express.json());
 
-mongoose
-  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("MongoDB error:", err));
-
 app.use("/api/products", productRoutes);
 app.use("/api/items", itemRoutes);
 
 app.use("/api/sales", salesItemRoutes);       
 app.use("/api/customers", customerItemRoutes);
+
+
+const {
+  MONGO_URI,
+  MONGO_USER,
+  MONGO_PASS,
+} = process.env;
+
+mongoose
+  .connect(MONGO_URI, {
+    user: MONGO_USER,
+    pass: MONGO_PASS,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error("MongoDB error:", err));
+
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
