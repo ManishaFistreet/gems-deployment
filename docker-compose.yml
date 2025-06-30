@@ -10,8 +10,8 @@ services:
       - backend
 
   backend:
-    build: .
-    dockerfile: backend/Dockerfile
+    build: .backend
+    dockerfile: Dockerfile
     ports:
       - "5000:5000"
     environment:
