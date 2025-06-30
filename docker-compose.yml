@@ -10,7 +10,7 @@ services:
       - backend
 
   backend:
-    build: .backend
+    build: ./backend
     dockerfile: Dockerfile
     ports:
       - "5000:5000"
